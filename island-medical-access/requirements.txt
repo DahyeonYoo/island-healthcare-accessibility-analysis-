@@ -10,3 +10,4 @@ pyreadstat>=1.2
 libpysal>=4.12
 esda>=2.5
 koreanize-matplotlib>=0.1.1
+shap>=0.52

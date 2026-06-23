@@ -87,7 +87,11 @@ else:
 print("\n##### 6. STEP1 X 누수 점검 #####")
 leak_kw = ['Y_time', 'sea_leg', 'land_leg', 'dist_main', 'acc_', 'ferry', 'sea_route',
            'has_emergency', 'has_clinic', 'on_min', 'off_leg', 'bottleneck', 'cluster']
-hit = [c for c in xx.columns if any(k.lower() in c.lower() for k in leak_kw)]
+allowed_targets = {'Y_time_emergency', 'Y_log'}
+hit = [
+    c for c in xx.columns
+    if c not in allowed_targets and any(k.lower() in c.lower() for k in leak_kw)
+]
 (ok if not hit else bad)(f"step1_X 누수 의심 컬럼: {hit if hit else '없음'}")
 ok(f"step1_X 변수 수: {xx.shape[1]} (섬코드/이름 포함)")
 

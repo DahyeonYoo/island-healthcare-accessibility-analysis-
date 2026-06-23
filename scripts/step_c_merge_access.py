@@ -48,7 +48,31 @@ def read_access_source(path: Path):
     return gpd.read_file(path, ignore_geometry=True)
 
 
+def read_access_geometry(path: Path):
+    if path.suffix.lower() == ".zip":
+        return gpd.read_file(f"zip://{path}")
+    return gpd.read_file(path)
+
+
+def ensure_grid_master() -> None:
+    out = OUT / "grid_master_jeonnam.gpkg"
+    if out.exists():
+        return
+
+    source = find_access_source("보건기관", 2023)
+    g = read_access_geometry(source)
+    g.columns = [c.lower() for c in g.columns]
+    if "sido_cd" not in g.columns:
+        raise KeyError(f"sido_cd 컬럼 없음: {source}")
+    g = g[g["sido_cd"].astype(str).str.zfill(2) == "46"].copy()
+    keep = [c for c in ["gid", "sgg_cd", "sgg_nm_k", "geometry"] if c in g.columns]
+    g = g[keep].to_crs(CRS)
+    g.to_file(out, driver="GPKG")
+    print("초기 격자 마스터 생성:", out, "| rows:", len(g))
+
+
 # --- 격자 마스터 로드 (geometry 유지) ---
+ensure_grid_master()
 grid = gpd.read_file(OUT / "grid_master_jeonnam.gpkg").to_crs(CRS)
 # 기존 임시 컬럼 정리 (Step A에서 넣은 2023 보건 값은 재생성)
 drop_old = [c for c in grid.columns if c.startswith("access_")]
