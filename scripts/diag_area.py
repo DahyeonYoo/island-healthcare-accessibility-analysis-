@@ -1,12 +1,11 @@
 ﻿# -*- coding: utf-8 -*-
-from pathlib import Path
 import geopandas as gpd
 import pandas as pd
 
-from project_paths import BASE
-OUT = BASE / "02_interim"
+from project_paths import INTERIM, RAW
+OUT = INTERIM
 
-csv = pd.read_csv(BASE / "전라남도 유인도정보_20241231.csv", encoding="utf-8-sig").rename(
+csv = pd.read_csv(RAW / "전라남도 유인도정보_20241231.csv", encoding="utf-8-sig").rename(
     columns={"섬 코드": "섬코드", "섬 이름": "섬이름"})
 csv["섬코드"] = csv["섬코드"].astype(int)
 acol = "지적도 기준 면적(제곱키로미터)"

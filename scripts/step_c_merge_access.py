@@ -13,8 +13,8 @@ from pathlib import Path
 import geopandas as gpd
 import pandas as pd
 
-from project_paths import BASE
-OUT = BASE / "02_interim"
+from project_paths import INTERIM, RAW
+OUT = INTERIM
 CRS = "EPSG:5179"
 MISSING = -999
 
@@ -47,7 +47,7 @@ jeonnam_gids = set(merged["gid"].astype(str))
 report = []
 for kw, prefix in TYPES.items():
     for yr in YEARS:
-        folder = BASE / f"(B100)국토통계_국토정책지표-{kw} 접근성-500M_{yr}"
+        folder = RAW / "접근성" / f"(B100)국토통계_국토정책지표-{kw} 접근성-500M_{yr}"
         if not folder.exists():
             print("폴더 없음(건너뜀):", folder.name)
             continue

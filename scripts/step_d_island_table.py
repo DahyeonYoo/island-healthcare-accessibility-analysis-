@@ -13,9 +13,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from project_paths import BASE
-INTERIM = BASE / "02_interim"
-MASTER = BASE / "03_master"
+from project_paths import INTERIM, MASTER, RAW
 MASTER.mkdir(exist_ok=True)
 
 # --- 1) 격자 접근성 -> 섬 집계 ---
@@ -38,14 +36,14 @@ island_acc["섬코드"] = island_acc["섬코드"].astype(int)
 print("섬별 접근성 집계:", island_acc.shape)
 
 # --- 2) 유인도 CSV (전체 속성) ---
-csv = pd.read_csv(BASE / "전라남도 유인도정보_20241231.csv", encoding="utf-8-sig")
+csv = pd.read_csv(RAW / "전라남도 유인도정보_20241231.csv", encoding="utf-8-sig")
 csv = csv.rename(columns={"섬 코드": "섬코드", "섬 이름": "섬이름"})
 csv["섬코드"] = csv["섬코드"].astype(int)
 print("유인도 CSV:", csv.shape)
 
 # --- 3) ferry ---
 ferry = pd.read_csv(
-    BASE / "운항 소요시간-20260604T115924Z-3-001" / "운항 소요시간" / "ferry_island_access.csv",
+    RAW / "운항 소요시간-20260604T115924Z-3-001" / "운항 소요시간" / "ferry_island_access.csv",
     encoding="utf-8-sig",
 )
 ferry = ferry.rename(columns={"섬코드": "섬코드"})

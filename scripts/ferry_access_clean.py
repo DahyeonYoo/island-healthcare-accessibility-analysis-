@@ -15,12 +15,16 @@
 """
 import pandas as pd
 import re
+from project_paths import RAW
 
-ROUTE_XLSX  = "/mnt/user-data/uploads/항로별_소요시간.xlsx"
-ISLAND_CSV  = "/mnt/user-data/uploads/전라남도_유인도정보_20241231.csv"
-OUT_ROUTES  = "/mnt/user-data/outputs/ferry_routes_parsed.csv"
-OUT_ACCESS  = "/mnt/user-data/outputs/ferry_island_access.csv"
-OUT_UNMATCH = "/mnt/user-data/outputs/ferry_manual_crosswalk.csv"
+FERRY_DIR = RAW / "운항 소요시간-20260604T115924Z-3-001" / "운항 소요시간"
+FERRY_DIR.mkdir(parents=True, exist_ok=True)
+
+ROUTE_XLSX = FERRY_DIR / "항로별_소요시간.xlsx"
+ISLAND_CSV = RAW / "전라남도 유인도정보_20241231.csv"
+OUT_ROUTES = FERRY_DIR / "ferry_routes_parsed.csv"
+OUT_ACCESS = FERRY_DIR / "ferry_island_access.csv"
+OUT_UNMATCH = FERRY_DIR / "ferry_manual_crosswalk.csv"
 
 # 권역 -> 가능 시군구(매칭 모호성 해소 힌트). 목포발은 여러 군에 걸쳐 있어 넓게 둠.
 REGION_HINT = {
