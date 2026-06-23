@@ -33,9 +33,12 @@ island-medical-access/
 └── .gitignore
 ```
 
-## 실행 (리포지토리 루트에서)
+## 실행
+
+통합 리포지토리에서는 먼저 이 폴더로 이동한 뒤 실행합니다.
 
 ```bash
+cd island-medical-access
 pip install -r requirements.txt
 python code/02_policy_simulation.py     # data/from_teammate 만 있으면 즉시 실행
 python code/03_lisa_spatial.py          # 동일

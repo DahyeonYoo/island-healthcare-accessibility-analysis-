@@ -1,15 +1,34 @@
-# 이 폴더에는 대용량 데이터(500M 데이터셋, xls/csv 등)가 많아
-# 기본적으로 모든 것을 무시하고, 코드(scripts)만 버전 관리합니다.
+# Python / R caches
+__pycache__/
+*.py[cod]
+.Rhistory
+.RData
+.Rproj.user/
 
-# 기본적으로 최상위의 모든 항목 무시
-/*
+# Local environments
+.venv/
+venv/
+env/
+.env
 
-# 버전 관리 대상은 아래만 포함
-!.gitignore
-!scripts/
+# Raw and restricted data
+data/raw/**
+island-medical-access/data/raw/**
+!data/raw/README.md
+!island-medical-access/data/raw/README.md
 
-# scripts 내부의 데이터/캐시성 파일은 제외
-scripts/**/__pycache__/
-scripts/**/*.pyc
-scripts/**/.Rhistory
-scripts/**/.RData
+# Large local work folders
+01_raw/
+02_interim/
+03_master/
+04_outputs/
+*.zip
+*.7z
+*.rar
+*.sas7bdat
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
