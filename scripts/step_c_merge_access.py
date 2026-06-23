@@ -27,11 +27,25 @@ TYPES = {
 YEARS = [2020, 2021, 2022, 2023]
 
 
-def find_shp(folder: Path) -> Path:
-    shps = list(folder.glob("*.shp"))
-    if not shps:
-        raise FileNotFoundError(f"shp 없음: {folder}")
-    return shps[0]
+def find_access_source(keyword: str, year: int) -> Path:
+    stem = f"(B100)국토통계_국토정책지표-{keyword} 접근성-500M_{year}"
+    folder = RAW / "접근성" / stem
+    if folder.exists():
+        shps = list(folder.glob("*.shp"))
+        if shps:
+            return shps[0]
+
+    zip_path = RAW / "접근성" / f"{stem}.zip"
+    if zip_path.exists():
+        return zip_path
+
+    raise FileNotFoundError(stem)
+
+
+def read_access_source(path: Path):
+    if path.suffix.lower() == ".zip":
+        return gpd.read_file(f"zip://{path}", ignore_geometry=True)
+    return gpd.read_file(path, ignore_geometry=True)
 
 
 # --- 격자 마스터 로드 (geometry 유지) ---
@@ -47,16 +61,16 @@ jeonnam_gids = set(merged["gid"].astype(str))
 report = []
 for kw, prefix in TYPES.items():
     for yr in YEARS:
-        folder = RAW / "접근성" / f"(B100)국토통계_국토정책지표-{kw} 접근성-500M_{yr}"
-        if not folder.exists():
-            print("폴더 없음(건너뜀):", folder.name)
+        try:
+            source = find_access_source(kw, yr)
+        except FileNotFoundError as e:
+            print("접근성 파일 없음(건너뜀):", e)
             continue
-        shp = find_shp(folder)
         # geometry 무시하고 속성만 빠르게 로드
-        df = gpd.read_file(shp, ignore_geometry=True)
+        df = read_access_source(source)
         df.columns = [c.lower() for c in df.columns]
         if "gid" not in df.columns or "value" not in df.columns:
-            print("컬럼 이상(건너뜀):", shp.name, list(df.columns))
+            print("컬럼 이상(건너뜀):", source.name, list(df.columns))
             continue
         col = f"acc_{prefix}_{yr}"
         sub = df[["gid", "value"]].copy()
