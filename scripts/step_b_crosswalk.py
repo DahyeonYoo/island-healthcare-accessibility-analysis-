@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Step B: 유인도 CSV(섬코드) <-> 섬 경계 shp(AL_D158) crosswalk 생성
 
@@ -19,13 +19,13 @@ from pathlib import Path
 import geopandas as gpd
 import pandas as pd
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
-OUT = BASE / "02_interim"
+from project_paths import INTERIM, RAW
+OUT = INTERIM
 OUT.mkdir(exist_ok=True)
 
 CRS = "EPSG:5179"
-PATH_ISLAND_CSV = BASE / "전라남도 유인도정보_20241231.csv"
-PATH_ISLAND_SHP = BASE / "AL_D158_00_20260114" / "AL_D158_00_20260114.shp"
+PATH_ISLAND_CSV = RAW / "전라남도 유인도정보_20241231.csv"
+PATH_ISLAND_SHP = RAW / "AL_D158_00_20260114" / "AL_D158_00_20260114.shp"
 
 NEAREST_MAX_M = 5000
 REVIEW_DIST_M = 500

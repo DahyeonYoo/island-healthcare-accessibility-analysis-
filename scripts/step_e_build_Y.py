@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Step E: 복합 '총 진료 도달시간' Y 생성 (옵션 A)
 
@@ -24,7 +24,7 @@ import pandas as pd
 import geopandas as gpd
 from pathlib import Path
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 INTERIM = BASE / "02_interim"
 MASTER = BASE / "03_master"
 CRS = "EPSG:5179"

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Step E-2: 항로 기항지 -> 섬 매칭으로 sea_leg 재구성
   - 54개 항로의 기항지 토큰을 277개 섬에 매칭 (부분일치 + 별칭사전)
@@ -10,9 +10,8 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
-FERRY = BASE / "운항 소요시간-20260604T115924Z-3-001" / "운항 소요시간"
-MASTER = BASE / "03_master"
+from project_paths import MASTER, RAW
+FERRY = RAW / "운항 소요시간-20260604T115924Z-3-001" / "운항 소요시간"
 
 routes = pd.read_csv(FERRY / "ferry_routes_parsed.csv", encoding="utf-8-sig")
 ana = pd.read_csv(MASTER / "island_analysis.csv", encoding="utf-8-sig")

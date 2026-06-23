@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 STEP (A) Y 병목 분해 + 섬별 병목유형 분류
 Y_time_emergency = min( 섬내도달시간(보유시), sea_leg_min + land_leg_emergency_min )
@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 matplotlib.rcParams["font.family"] = "Malgun Gothic"
 matplotlib.rcParams["axes.unicode_minus"] = False
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 MASTER = BASE / "03_master"
 df = pd.read_csv(MASTER / "master_unified.csv", encoding="utf-8-sig")
 

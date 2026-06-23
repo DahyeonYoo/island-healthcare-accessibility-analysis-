@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 STEP 3: 지역별 강도 공간 시각화
   ① 군집 3계층 지도
@@ -17,7 +17,7 @@ from matplotlib.patches import Patch
 matplotlib.rcParams["font.family"] = "Malgun Gothic"
 matplotlib.rcParams["axes.unicode_minus"] = False
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 INTERIM, MASTER = BASE / "02_interim", BASE / "03_master"
 
 g = gpd.read_file(INTERIM / "island_boundaries_jeonnam.gpkg")

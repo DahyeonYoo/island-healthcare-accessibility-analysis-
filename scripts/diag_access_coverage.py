@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from pathlib import Path
 import pandas as pd
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 df = pd.read_csv(BASE / "03_master" / "island_analysis.csv", encoding="utf-8-sig")
 
 conn_col = [c for c in df.columns if "육지" in c and "연결" in c][0]

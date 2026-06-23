@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # 격자 인구(long: BASE_YEAR/GRID_CD/STAT_ITM/STAT_VAL) → 피벗 → 섬코드 집계 (R 버전).
 # 산출: 04_center/island_grid_pop.csv
 # 전제: prep01 ②에서 GRID_CD↔gid 직접매칭률 충분(>50%). 0이면 좌표폴백 사용.
-source("C:/Users/dyu18/OneDrive/문서/데이터활용대회/scripts/R/prep00_config.R")
+config_path <- file.path("scripts", "R", "prep00_config.R")`r`nif (!file.exists(config_path)) config_path <- file.path(dirname(normalizePath(sys.frame(1)$ofile)), "prep00_config.R")`r`nsource(config_path)
 
 USE_DIRECT_JOIN   <- TRUE
 GRID_GLOB         <- "격자인구.*\\.csv$"   # 연도별 파일 정규식(현장 교체)

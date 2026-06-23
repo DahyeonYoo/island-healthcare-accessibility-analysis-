@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Step D: 섬 단위 분석 테이블 생성 (STEP1 회귀/RF 입력)
   결합:
@@ -13,7 +13,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 INTERIM = BASE / "02_interim"
 MASTER = BASE / "03_master"
 MASTER.mkdir(exist_ok=True)

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 STEP 2 (재설계): 연속변수 중심 K-means
 피처 = sea_leg_min, land_leg_emergency_min, Y_time_emergency, 인구밀도, dist_main_km
@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 matplotlib.rcParams["font.family"] = "Malgun Gothic"
 matplotlib.rcParams["axes.unicode_minus"] = False
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 MASTER = BASE / "03_master"
 df = pd.read_csv(MASTER / "master_unified.csv", encoding="utf-8-sig")
 bt = pd.read_csv(MASTER / "stepA_bottleneck.csv", encoding="utf-8-sig")

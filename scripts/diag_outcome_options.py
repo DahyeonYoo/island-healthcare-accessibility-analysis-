@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from pathlib import Path
 import pandas as pd
 import numpy as np
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 df = pd.read_csv(BASE / "03_master" / "island_analysis.csv", encoding="utf-8-sig")
 conn = "육지b연결유무"
 pop = "2024년 총인구"

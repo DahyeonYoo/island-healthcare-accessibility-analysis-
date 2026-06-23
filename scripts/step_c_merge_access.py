@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Step C: 접근성 shp value -> 격자 마스터 wide merge
   대상: 보건기관 / 응급의료 / 의원  x  2020~2023  (총 12개 레이어)
@@ -13,7 +13,7 @@ from pathlib import Path
 import geopandas as gpd
 import pandas as pd
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 OUT = BASE / "02_interim"
 CRS = "EPSG:5179"
 MISSING = -999

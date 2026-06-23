@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # 데이터센터 작업 공용 설정 (R 버전). 다른 prep0x.R 들이 source() 로 불러 씀.
 # 필요 패키지: sf, dplyr, tidyr, readr, stringr
 suppressPackageStartupMessages({
@@ -6,7 +6,13 @@ suppressPackageStartupMessages({
 })
 
 # ── 폴더 ────────────────────────────────────────────────────────────────────
-BASE    <- "C:/Users/dyu18/OneDrive/문서/데이터활용대회"
+this_file <- tryCatch(normalizePath(sys.frame(1)$ofile), error = function(e) NA_character_)
+if (is.na(this_file)) {
+  args <- commandArgs(trailingOnly = FALSE)
+  file_arg <- grep("^--file=", args, value = TRUE)
+  this_file <- if (length(file_arg)) normalizePath(sub("^--file=", "", file_arg[1])) else getwd()
+}
+BASE <- normalizePath(file.path(dirname(this_file), "..", ".."), winslash = "/", mustWork = TRUE)
 INTERIM <- file.path(BASE, "02_interim")   # 기존 격자/섬 크로스워크 자산
 MASTER  <- file.path(BASE, "03_master")    # 기존 분석 결과
 OUT     <- file.path(BASE, "04_center")    # 센터 산출물(새로 생성)

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Step B-3: 격자 <-> 섬 매핑 (grid_island_lookup.csv)
   방법:
@@ -11,7 +11,7 @@ from pathlib import Path
 import geopandas as gpd
 import pandas as pd
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 OUT = BASE / "02_interim"
 CRS = "EPSG:5179"
 

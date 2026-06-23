@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Step F: (1) Y 단위정합 재생성  (2) 팀원 X변수 병합  (3) 통합 마스터 저장
 
@@ -16,9 +16,9 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE, TEAM_MASTER_XLSX
 MASTER = BASE / "03_master"
-TEAM = Path(r"C:\Users\dyu18\Downloads\가현이의 마스터파일.xlsx")
+TEAM = TEAM_MASTER_XLSX
 
 FERRY_SPEED = 30.0
 ROAD_SPEED = 40.0

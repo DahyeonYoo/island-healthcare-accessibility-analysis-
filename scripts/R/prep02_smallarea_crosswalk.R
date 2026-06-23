@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # 소지역 중심좌표(X_COORD/Y_COORD) → 섬코드 매핑 (R 버전).
 #   소지역 테이블에 좌표가 있으므로 별도 집계구 경계 shp 불필요.
 #   점(블록 중심) → island_boundaries 폴리곤 point-in-polygon 공간조인.
 # 산출: 04_center/smallarea_island_lookup.csv  (카드·SKT 병합키)
 #       04_center/adong_island_map.csv         (행정동→섬, 다대다)
-source("C:/Users/dyu18/OneDrive/문서/데이터활용대회/scripts/R/prep00_config.R")
+config_path <- file.path("scripts", "R", "prep00_config.R")`r`nif (!file.exists(config_path)) config_path <- file.path(dirname(normalizePath(sys.frame(1)$ofile)), "prep00_config.R")`r`nsource(config_path)
 
 NEAREST_FALLBACK_M <- 0   # >0 이면 섬 경계 밖 블록을 그 거리 내 최근접 섬에 보강
 

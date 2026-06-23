@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from pathlib import Path
 import geopandas as gpd
 import pandas as pd
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 OUT = BASE / "02_interim"
 
 csv = pd.read_csv(BASE / "전라남도 유인도정보_20241231.csv", encoding="utf-8-sig").rename(

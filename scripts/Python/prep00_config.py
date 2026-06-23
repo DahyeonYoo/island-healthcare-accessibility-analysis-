@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 데이터센터 작업 공용 설정.
 경로 / 연도 / 좌표계 / 인코딩만 현장에서 맞추면 prep01~05가 그대로 돈다.
@@ -8,7 +8,7 @@ from pathlib import Path
 import pandas as pd
 
 # ── 폴더 ─────────────────────────────────────────────────────────────────────
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+BASE = Path(__file__).resolve().parents[2]
 INTERIM = BASE / "02_interim"          # 기존 격자/섬 크로스워크 자산
 MASTER = BASE / "03_master"            # 기존 분석 결과
 OUT = BASE / "04_center"               # 센터 산출물(새로 생성)

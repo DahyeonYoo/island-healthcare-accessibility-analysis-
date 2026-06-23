@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Step B-2: 277개 유인도 전체에 지오메트리 부여
   - confidence high/medium : shp(AL_D158) 매칭 폴리곤 사용
@@ -12,13 +12,13 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
-OUT = BASE / "02_interim"
+from project_paths import INTERIM, RAW
+OUT = INTERIM
 CRS = "EPSG:5179"
 
 PATH_CW = OUT / "island_crosswalk.csv"
-PATH_CSV = BASE / "전라남도 유인도정보_20241231.csv"
-PATH_SHP = BASE / "AL_D158_00_20260114" / "AL_D158_00_20260114.shp"
+PATH_CSV = RAW / "전라남도 유인도정보_20241231.csv"
+PATH_SHP = RAW / "AL_D158_00_20260114" / "AL_D158_00_20260114.shp"
 
 DEFAULT_RADIUS_M = 150.0  # 면적 정보 없을 때 기본 반경
 

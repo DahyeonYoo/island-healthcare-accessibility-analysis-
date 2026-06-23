@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """단계별 과정 설명 보고서 + 학습 액션플랜 docx 생성"""
 from pathlib import Path
 from docx import Document
@@ -22,7 +22,7 @@ def _set_run_font(run, east_asia="휴먼명조", size=13, bold=False):
     rFonts.set(qn("w:hAnsi"), "Times New Roman")
     rFonts.set(qn("w:eastAsia"), east_asia)
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 OUT = BASE / "03_master" / "보고서_과정설명_및_학습액션플랜.docx"
 
 

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Y 단위 정합성 통일: island_analysis.csv를 정본(master_unified.csv)에 맞춤.
   - 문제: island_analysis.csv의 Y는 sea_leg(분)+land_leg(km) 혼합단위(버그, 평균48.5)
@@ -6,10 +6,10 @@ Y 단위 정합성 통일: island_analysis.csv를 정본(master_unified.csv)에 
   - 조치: land_leg 컬럼명을 _km로 명확히, _min 추가, Y를 정본값으로 덮어씀.
 """
 import pandas as pd
-from pathlib import Path
+from project_paths import MASTER
 import shutil
 
-M = Path(r'C:\Users\dyu18\OneDrive\문서\데이터활용대회\03_master')
+M = MASTER
 ia_path = M / 'island_analysis.csv'
 
 # 1) 백업

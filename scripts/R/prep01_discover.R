@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # 센터 도착 직후 '맨 먼저' 실행 (R 버전).
 # 확정할 4가지: ①STAT_ITM 코드 ②GRID_CD↔gid 매칭률 ③소지역 좌표계 ④카드/SKT 키
-# 실행 전 1회: setwd() 를 이 스크립트 폴더로 두거나 아래 경로를 환경에 맞게 수정.
-source("C:/Users/dyu18/OneDrive/문서/데이터활용대회/scripts/R/prep00_config.R")
+config_path <- file.path("scripts", "R", "prep00_config.R")`r`nif (!file.exists(config_path)) config_path <- file.path(dirname(normalizePath(sys.frame(1)$ofile)), "prep00_config.R")`r`nsource(config_path)
 
 sec <- function(t) cat("\n", strrep("=", 70), "\n", t, "\n", strrep("=", 70), "\n", sep = "")
 

@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # 센터 산출물 → 기존 마스터 병합 + 수요가중 취약지수 (R 버전).
 # 입력 : 03_master/island_analysis.csv, 04_center/island_grid_pop.csv (+ island_skt_pop.csv)
 # 산출 : 04_center/island_analysis_plus.csv  → STEP1 재학습/STEP3 재시각화 입력
-source("C:/Users/dyu18/OneDrive/문서/데이터활용대회/scripts/R/prep00_config.R")
+config_path <- file.path("scripts", "R", "prep00_config.R")`r`nif (!file.exists(config_path)) config_path <- file.path(dirname(normalizePath(sys.frame(1)$ofile)), "prep00_config.R")`r`nsource(config_path)
 
 isl <- readr::read_csv(file.path(MASTER, "island_analysis.csv"),
                        locale = locale(encoding = "UTF-8"), show_col_types = FALSE)

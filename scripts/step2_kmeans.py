@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 STEP 2: K-means 클러스터링
 목적: 의료취약 특성이 유사한 섬을 군집화 → 유형별 정책 묶음 도출.
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 matplotlib.rcParams["font.family"] = "Malgun Gothic"
 matplotlib.rcParams["axes.unicode_minus"] = False
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 MASTER = BASE / "03_master"
 df = pd.read_csv(MASTER / "master_unified.csv", encoding="utf-8-sig")
 bt = pd.read_csv(MASTER / "stepA_bottleneck.csv", encoding="utf-8-sig")

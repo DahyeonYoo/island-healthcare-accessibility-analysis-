@@ -1,14 +1,14 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 전체 파이프라인 자가검증 (self-audit)
 검사: 키정합성 / Y 일치 / 단위항등식 / Y구성식 / 결측 / 범위 / 누수 / 군집·병목 재현성
 """
 import numpy as np
 import pandas as pd
-from pathlib import Path
+from project_paths import INTERIM, MASTER
 
-M = Path(r'C:\Users\dyu18\OneDrive\문서\데이터활용대회\03_master')
-I = Path(r'C:\Users\dyu18\OneDrive\문서\데이터활용대회\02_interim')
+M = MASTER
+I = INTERIM
 FERRY, ROAD = 30.0, 40.0
 PASS, WARN, FAIL = [], [], []
 def ok(m): PASS.append(m); print("  [OK]  " + m)

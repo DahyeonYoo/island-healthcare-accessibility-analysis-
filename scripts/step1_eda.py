@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 STEP 1 - EDA & 전처리
   Y = Y_time_emergency (분). X = 구조적/사회경제 변수 (Y 구성요소는 누수로 제외)
@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 MASTER = BASE / "03_master"
 df = pd.read_csv(MASTER / "master_unified.csv", encoding="utf-8-sig")
 

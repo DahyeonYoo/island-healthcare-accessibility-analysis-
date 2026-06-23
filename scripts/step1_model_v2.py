@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 STEP 1 재산출 (v2): '먼섬특별법' 제외 → 실질 원인 상위 3 확정
 """
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 matplotlib.rcParams["font.family"] = "Malgun Gothic"
 matplotlib.rcParams["axes.unicode_minus"] = False
 
-BASE = Path(r"C:\Users\dyu18\OneDrive\문서\데이터활용대회")
+from project_paths import BASE
 MASTER = BASE / "03_master"
 df = pd.read_csv(MASTER / "step1_X.csv", encoding="utf-8-sig")
 

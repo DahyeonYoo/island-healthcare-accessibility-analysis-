@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # 소지역키 자료(카드매출 / SKT 주거인구) 범용 병합 (R 버전).
 # prep02의 smallarea_island_lookup.csv 로 어떤 키든 섬코드 집계.
-source("C:/Users/dyu18/OneDrive/문서/데이터활용대회/scripts/R/prep00_config.R")
+config_path <- file.path("scripts", "R", "prep00_config.R")`r`nif (!file.exists(config_path)) config_path <- file.path(dirname(normalizePath(sys.frame(1)$ofile)), "prep00_config.R")`r`nsource(config_path)
 
 # data_path     : 원자료 csv
 # key_col       : 원자료 결합키(BLOCK_CD/SMRY_AREA/ADONG_CD 등)
